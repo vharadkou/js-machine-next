@@ -30,7 +30,7 @@ export function About() {
         }}
       >
         <Offset />
-        <Container maxWidth={'lg'}>
+        <Container maxWidth={'sm'}>
           <Grid
             container
             direction="row"
