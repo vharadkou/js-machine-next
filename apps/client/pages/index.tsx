@@ -1,14 +1,9 @@
-import styles from './index.module.css';
 import { Video } from '../components/Video';
+import Box from '@mui/material/Box';
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
   return (
-    <div className={styles.page}>
+    <Box>
       <Video
         style={{
           position: 'fixed',
@@ -18,7 +13,7 @@ export function Index() {
         }}
         path="video/main.mp4"
       />
-    </div>
+    </Box>
   );
 }
 

@@ -2,14 +2,21 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
 
+import { Layout } from '../components/Layout';
+import { theme } from '../components/Theme';
+import { ThemeProvider } from '@mui/material/styles';
+
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to client!</title>
+        <title>JS Machine App</title>
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
+      <main>
+        <ThemeProvider theme={theme}>
+          <Layout />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </main>
     </>
   );
