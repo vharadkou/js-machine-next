@@ -8,13 +8,13 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
-import { useTheme } from '@mui/material/styles';
 import { Offset } from '../components/Layout/Offset';
+import { ImageBackground } from '../components/Layout/ImageBackground';
 
-export function About() {
+function About() {
   return (
     <>
-      <Background />
+      <ImageBackground image="images/about.jpg" />
       <Box
         sx={{
           height: '100%',
@@ -77,30 +77,6 @@ export function About() {
         <Offset />
       </Box>
     </>
-  );
-}
-
-function Background() {
-  const theme = useTheme();
-
-  return (
-    <Box
-      sx={{
-        position: 'fixed',
-        inset: '0 0 0 0',
-        backgroundImage: 'url(images/about.jpg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-      }}
-    >
-      <Box
-        sx={{
-          height: '100%',
-          ...theme.mixins.bluredBackground,
-        }}
-      />
-    </Box>
   );
 }
 

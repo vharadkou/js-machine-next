@@ -11,6 +11,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>JS Machine App</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" href="favicon.ico" />
       </Head>
       <main>
         <ThemeProvider theme={theme}>

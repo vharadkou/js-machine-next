@@ -1,9 +1,9 @@
 import { Video } from '../components/Video';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
 import { Offset } from '../components/Layout/Offset';
+import Typography from '@mui/material/Typography';
 
-export function Index() {
+function Index() {
   return (
     <Box>
       <Video path="video/main.mp4" />
