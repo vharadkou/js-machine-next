@@ -1,16 +1,30 @@
-import React, { MouseEventHandler, useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import { Button } from '@mui/material';
+import Paper from '@mui/material/Paper';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import Button from '@mui/material/Button';
 
 export const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 export function Layout() {
   const router = useRouter();
+  const [value, setValue] = React.useState(router.pathname);
+
+  const navigate = useCallback(
+    (href: string) => () => {
+      router.push(href);
+    },
+    [router]
+  );
+
+  useEffect(() => {
+    setValue(router.pathname);
+  }, [router.pathname]);
 
   return (
     <AppBar
@@ -36,6 +50,42 @@ export function Layout() {
           <AppBarButton href="/news" text="НОВОСТИ" />
           <AppBarButton href="/events" text="СОБЫТИЯ" />
         </Box>
+        <Paper
+          sx={{
+            display: {
+              xs: 'block',
+              sm: 'none',
+              backgroundColor: 'transparent',
+            },
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+          elevation={3}
+        >
+          <BottomNavigation
+            sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+            showLabels
+            value={value}
+          >
+            <BottomNavigationAction
+              value="/about"
+              onClick={navigate('/about')}
+              label="О НАС"
+            />
+            <BottomNavigationAction
+              value="/news"
+              onClick={navigate('/news')}
+              label="НОВОСТИ"
+            />
+            <BottomNavigationAction
+              value="/events"
+              onClick={navigate('/events')}
+              label="СОБЫТИЯ"
+            />
+          </BottomNavigation>
+        </Paper>
       </Toolbar>
     </AppBar>
   );
@@ -52,9 +102,13 @@ function AppBarButton({
 }) {
   const router = useRouter();
 
+  const navigate = useCallback(() => {
+    router.push(href);
+  }, [href, router]);
+
   return (
     <Button
-      onClick={() => router.push(href)}
+      onClick={navigate}
       size="large"
       sx={{ color: router.asPath === href ? '#f2e14c' : 'white', fontSize }}
     >

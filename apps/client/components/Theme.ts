@@ -19,4 +19,15 @@ export const theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  components: {
+    MuiBottomNavigationAction: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#f2e14c',
+          },
+        },
+      },
+    },
+  },
 });
