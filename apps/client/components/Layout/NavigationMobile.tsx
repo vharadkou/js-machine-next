@@ -32,6 +32,7 @@ export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
         bottom: 0,
         left: 0,
         right: 0,
+        zIndex: 1,
         ...sx,
       }}
       elevation={3}

@@ -16,11 +16,9 @@ export function About() {
       <Background />
       <Box
         sx={{
-          position: 'fixed',
-          inset: '0 0 0 0',
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'auto',
         }}
       >
         <Offset />
