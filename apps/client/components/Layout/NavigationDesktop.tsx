@@ -14,6 +14,7 @@ export const NavigationDesktop = memo(function NavigationDesktop({
     <Box
       sx={{
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backdropFilter: 'blur(4px)',
         p: 0.5,
         borderRadius: 1,
         ...sx,

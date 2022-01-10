@@ -6,10 +6,12 @@ export function Index() {
     <Box>
       <Video
         style={{
+          objectFit: 'cover',
+          width: '100vw',
+          height: '100vh',
           position: 'fixed',
-          top: '50%',
-          right: '50%',
-          transform: 'translate(50%,-50%)',
+          top: 0,
+          left: 0,
         }}
         path="video/main.mp4"
       />

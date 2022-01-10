@@ -38,7 +38,10 @@ export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
       elevation={3}
     >
       <BottomNavigation
-        sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+        sx={{
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backdropFilter: 'blur(4px)',
+        }}
         showLabels
         value={value}
       >
