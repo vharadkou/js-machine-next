@@ -10,11 +10,12 @@ import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import { Offset } from '../components/Layout/Offset';
 import { ImageBackground } from '../components/Layout/ImageBackground';
+import AboutJpg from '../public/images/about.jpg';
 
 function About() {
   return (
     <>
-      <ImageBackground image="images/about.jpg" />
+      <ImageBackground image={AboutJpg} />
       <Box
         sx={{
           height: '100%',
