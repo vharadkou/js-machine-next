@@ -1,4 +1,6 @@
 import React, { CSSProperties } from 'react';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
 interface Props {
   style?: CSSProperties;
@@ -6,17 +8,36 @@ interface Props {
 }
 
 export function Video({ path, style }: Props) {
+  const theme = useTheme();
+
   return (
-    <video
-      id="myVideo"
-      style={style}
-      playsInline
-      autoPlay
-      muted
-      loop
-      poster="images/video.jpg"
-    >
-      <source src={path} type="video/mp4" />
-    </video>
+    <>
+      <video
+        id="myVideo"
+        style={{
+          objectFit: 'cover',
+          width: '100vw',
+          height: '100vh',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          ...style,
+        }}
+        playsInline
+        autoPlay
+        muted
+        loop
+        poster="images/video.jpg"
+      >
+        <source src={path} type="video/mp4" />
+      </video>
+      <Box
+        sx={{
+          position: 'fixed',
+          inset: '0 0 0 0',
+          ...theme.mixins.bluredBackground,
+        }}
+      ></Box>
+    </>
   );
 }

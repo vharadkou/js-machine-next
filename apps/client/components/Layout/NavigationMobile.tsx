@@ -3,13 +3,14 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 import { useRouter } from 'next/router';
-import { SxProps, Theme } from '@mui/material/styles';
+import { SxProps, Theme, useTheme } from '@mui/material/styles';
 
 interface Props {
   sx: SxProps<Theme>;
 }
 
 export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
+  const theme = useTheme();
   const router = useRouter();
   const [value, setValue] = useState(router.pathname);
 
@@ -38,10 +39,7 @@ export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
       elevation={3}
     >
       <BottomNavigation
-        sx={{
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          backdropFilter: 'blur(4px)',
-        }}
+        sx={theme.mixins.bluredBackground}
         showLabels
         value={value}
       >

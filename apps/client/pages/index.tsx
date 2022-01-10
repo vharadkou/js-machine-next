@@ -1,20 +1,16 @@
 import { Video } from '../components/Video';
 import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
+import { Offset } from '../components/Layout/Offset';
 
 export function Index() {
   return (
     <Box>
-      <Video
-        style={{
-          objectFit: 'cover',
-          width: '100vw',
-          height: '100vh',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-        }}
-        path="video/main.mp4"
-      />
+      <Video path="video/main.mp4" />
+      <Box sx={{ position: 'relative' }}>
+        <Offset />
+        <Typography variant="h5">Content</Typography>
+      </Box>
     </Box>
   );
 }

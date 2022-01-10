@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
-import { SxProps, Theme } from '@mui/material/styles';
+import { styled, SxProps, Theme, useTheme } from '@mui/material/styles';
 import { NavigationButton } from './NavigationButton';
 
 interface Props {
@@ -10,13 +10,14 @@ interface Props {
 export const NavigationDesktop = memo(function NavigationDesktop({
   sx,
 }: Props) {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        backdropFilter: 'blur(4px)',
         p: 0.5,
         borderRadius: 1,
+        ...theme.mixins.bluredBackground,
         ...sx,
       }}
     >

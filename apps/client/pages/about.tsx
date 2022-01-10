@@ -3,12 +3,13 @@ import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { Offset } from '../components/Layout/Offset';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
+import { useTheme } from '@mui/material/styles';
+import { Offset } from '../components/Layout/Offset';
 
 export function About() {
   return (
@@ -80,6 +81,8 @@ export function About() {
 }
 
 function Background() {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -94,7 +97,7 @@ function Background() {
       <Box
         sx={{
           height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          ...theme.mixins.bluredBackground,
         }}
       />
     </Box>

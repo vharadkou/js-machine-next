@@ -25,9 +25,22 @@ export const theme = createTheme({
         root: {
           '&.Mui-selected': {
             color: '#f2e14c',
+            fontWeight: 'bold',
           },
         },
       },
     },
   },
+  mixins: {
+    bluredBackground: {
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      backdropFilter: 'blur(3px)',
+    },
+  },
 });
+
+declare module '@mui/material/styles/createMixins' {
+  interface Mixins {
+    bluredBackground: CSSProperties;
+  }
+}
