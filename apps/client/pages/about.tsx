@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { Offset } from '../components/Layout';
+import { Offset } from '../components/Layout/Offset';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -12,25 +12,27 @@ import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 
 export function About() {
   return (
-    <Box
-      sx={{
-        height: '100vh',
-        backgroundImage: 'url(images/about.jpg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-      }}
-    >
+    <>
+      <Background />
       <Box
         sx={{
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          display: { sm: 'flex', sx: 'block' },
-          alignItems: { sm: 'center' },
+          position: 'fixed',
+          inset: '0 0 0 0',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'auto',
         }}
       >
         <Offset />
-        <Container maxWidth={'sm'}>
+        <Container
+          sx={{
+            flex: 1,
+            position: 'relative',
+            display: { sm: 'flex', sx: 'block' },
+            alignItems: { sm: 'center' },
+          }}
+          maxWidth={'sm'}
+        >
           <Grid
             container
             direction="row"
@@ -73,7 +75,30 @@ export function About() {
             </Grid>
           </Grid>
         </Container>
+        <Offset />
       </Box>
+    </>
+  );
+}
+
+function Background() {
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        inset: '0 0 0 0',
+        backgroundImage: 'url(images/about.jpg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+      }}
+    >
+      <Box
+        sx={{
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        }}
+      />
     </Box>
   );
 }
