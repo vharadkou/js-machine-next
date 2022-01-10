@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
-import { styled, SxProps, Theme, useTheme } from '@mui/material/styles';
+import { SxProps, Theme, useTheme } from '@mui/material/styles';
 import { NavigationButton } from './NavigationButton';
 
 interface Props {
