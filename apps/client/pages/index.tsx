@@ -16,9 +16,10 @@ function Index() {
         flexDirection: 'column',
         justifyContent: { xs: 'start', sm: 'center' },
       }}
+      maxWidth="sm"
     >
       {data?.map((event) => (
-        <EventCard key={event.id} event={event} sx={{ mb: 2 }} />
+        <EventCard key={event.id} event={event} sx={{ mb: 1 }} />
       ))}
     </Shell>
   );

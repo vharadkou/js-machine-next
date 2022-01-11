@@ -2,7 +2,7 @@ import { memo, ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import LinearProgress from '@mui/material/LinearProgress';
-import { SxProps, Theme } from '@mui/material/styles';
+import { Breakpoint, SxProps, Theme } from '@mui/material/styles';
 import { Offset } from './Offset';
 import { ImageBackground } from './ImageBackground';
 import { Video } from '../Video';
@@ -12,6 +12,7 @@ interface Props {
   image?: string;
   video?: string;
   sx?: SxProps<Theme>;
+  maxWidth?: Breakpoint | false;
   children?: ReactNode;
 }
 
@@ -20,6 +21,7 @@ export const Shell = memo(function Shell({
   image,
   video,
   sx,
+  maxWidth,
   children,
 }: Props) {
   return (
@@ -48,7 +50,7 @@ export const Shell = memo(function Shell({
             mt: 2,
             ...sx,
           }}
-          maxWidth={'sm'}
+          maxWidth={maxWidth}
         >
           {children}
         </Container>

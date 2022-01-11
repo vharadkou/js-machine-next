@@ -27,8 +27,8 @@ export const EventCard = memo(function RecentEvent({ event, sx }: Props) {
   );
 
   return (
-    <Card key={event.id} sx={{ ...theme.mixins.bluredBackground, ...sx }}>
-      <CardActionArea href={event.link} target="_blank">
+    <CardActionArea href={event.link} target="_blank" sx={{ ...sx }}>
+      <Card sx={{ ...theme.mixins.bluredBackground, ...sx }}>
         <CardContent sx={{ display: 'flex' }}>
           <Box sx={{ mr: 2 }}>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
@@ -41,10 +41,12 @@ export const EventCard = memo(function RecentEvent({ event, sx }: Props) {
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
               {event.title}
             </Typography>
-            <Typography variant="body2">{event.description}</Typography>
+            <Typography variant="body2" sx={{ wordBreak: 'break-word' }}>
+              {event.description}
+            </Typography>
           </Box>
         </CardContent>
-      </CardActionArea>
-    </Card>
+      </Card>
+    </CardActionArea>
   );
 });

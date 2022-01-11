@@ -14,6 +14,7 @@ function About() {
         display: { sm: 'flex', sx: 'block' },
         alignItems: { sm: 'center' },
       }}
+      maxWidth="sm"
     >
       <Grid
         container
