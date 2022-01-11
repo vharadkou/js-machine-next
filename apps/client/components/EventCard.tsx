@@ -1,0 +1,47 @@
+import { memo, useMemo } from 'react';
+import Typography from '@mui/material/Typography';
+import { SxProps, Theme, useTheme } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Box from '@mui/material/Box';
+import { Event } from '../redux/models';
+
+interface Props {
+  event: Event;
+  sx?: SxProps<Theme>;
+}
+
+export const EventCard = memo(function RecentEvent({ event, sx }: Props) {
+  const theme = useTheme();
+
+  const { day, year, month } = useMemo(
+    () => ({
+      day: new Date(event.date).getDate(),
+      year: new Date(event.date).getFullYear(),
+      month: new Date(event.date)
+        .toLocaleString('ru', { month: 'short' })
+        .toUpperCase(),
+    }),
+    [event.date]
+  );
+
+  return (
+    <Card key={event.id} sx={{ ...theme.mixins.bluredBackground, ...sx }}>
+      <CardContent sx={{ display: 'flex' }}>
+        <Box sx={{ mr: 2 }}>
+          <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+            {day}
+          </Typography>
+          <Typography variant="body2">{month}</Typography>
+          <Typography variant="body2">{year}</Typography>
+        </Box>
+        <Box>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            {event.title}
+          </Typography>
+          <Typography variant="body2">{event.description}</Typography>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+});
