@@ -33,6 +33,7 @@ export const Shell = memo(function Shell({
       {image && <ImageBackground image={image} />}
       {video && <Video path="video/main.mp4" />}
       <Box
+        id="back-to-top-anchor"
         sx={{
           position: 'relative',
           height: '100%',
