@@ -1,14 +1,8 @@
-import Box from '@mui/material/Box';
-import { ImageBackground } from '../components/Layout/ImageBackground';
+import { Shell } from '../components/Layout/Shell';
 import EventsJpg from '../public/images/events.jpg';
 
 function Events() {
-  return (
-    <>
-      <ImageBackground image={EventsJpg} />
-      <Box>News</Box>
-    </>
-  );
+  return <Shell image={EventsJpg}>Hello Events</Shell>;
 }
 
 export default Events;

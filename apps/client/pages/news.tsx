@@ -1,14 +1,8 @@
-import Box from '@mui/material/Box';
-import { ImageBackground } from '../components/Layout/ImageBackground';
+import { Shell } from '../components/Layout/Shell';
 import NewsJpg from '../public/images/news.jpg';
 
 function News() {
-  return (
-    <>
-      <ImageBackground image={NewsJpg} />
-      <Box>News</Box>
-    </>
-  );
+  return <Shell image={NewsJpg}>Hello News</Shell>;
 }
 
 export default News;
