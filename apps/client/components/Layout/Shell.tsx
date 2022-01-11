@@ -51,7 +51,7 @@ export const Shell = memo(function Shell({
         >
           {children}
         </Container>
-        <Offset />
+        <Offset sx={{ display: { xs: 'block', sm: 'none' } }} />
       </Box>
     </>
   );

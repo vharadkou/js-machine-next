@@ -8,7 +8,10 @@ export const jsmApi = createApi({
     getRecentEvents: builder.query<Event[], string>({
       query: () => `events/recent`,
     }),
+    getEvents: builder.query<Event[], string>({
+      query: () => `events`,
+    }),
   }),
 });
 
-export const { useGetRecentEventsQuery } = jsmApi;
+export const { useGetRecentEventsQuery, useGetEventsQuery } = jsmApi;

@@ -4,6 +4,7 @@ import { SxProps, Theme, useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
+import CardActionArea from '@mui/material/CardActionArea';
 import { Event } from '../redux/models';
 
 interface Props {
@@ -27,21 +28,23 @@ export const EventCard = memo(function RecentEvent({ event, sx }: Props) {
 
   return (
     <Card key={event.id} sx={{ ...theme.mixins.bluredBackground, ...sx }}>
-      <CardContent sx={{ display: 'flex' }}>
-        <Box sx={{ mr: 2 }}>
-          <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
-            {day}
-          </Typography>
-          <Typography variant="body2">{month}</Typography>
-          <Typography variant="body2">{year}</Typography>
-        </Box>
-        <Box>
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {event.title}
-          </Typography>
-          <Typography variant="body2">{event.description}</Typography>
-        </Box>
-      </CardContent>
+      <CardActionArea href={event.link} target="_blank">
+        <CardContent sx={{ display: 'flex' }}>
+          <Box sx={{ mr: 2 }}>
+            <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+              {day}
+            </Typography>
+            <Typography variant="body2">{month}</Typography>
+            <Typography variant="body2">{year}</Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              {event.title}
+            </Typography>
+            <Typography variant="body2">{event.description}</Typography>
+          </Box>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 });
