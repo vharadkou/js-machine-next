@@ -11,6 +11,8 @@ import { Video } from '../components/Video';
 import { Offset } from '../components/Layout/Offset';
 import { useGetRecentEventsQuery } from '../redux/events';
 import { Event } from '../redux/models';
+import { ImageBackground } from '../components/Layout/ImageBackground';
+import VideoJpg from '../public/images/video.jpg';
 
 function Index() {
   const { data, isLoading } = useGetRecentEventsQuery('');
@@ -23,6 +25,7 @@ function Index() {
           sx={{ position: 'fixed', zIndex: 1, width: '100%' }}
         />
       )}
+      <ImageBackground image={VideoJpg} noBluredBackground />
       <Video path="video/main.mp4" />
       <Box
         sx={{

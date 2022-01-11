@@ -5,9 +5,13 @@ import { useTheme } from '@mui/material/styles';
 
 interface Props {
   image: string;
+  noBluredBackground?: boolean;
 }
 
-export const ImageBackground = memo(function ImageBackground({ image }: Props) {
+export const ImageBackground = memo(function ImageBackground({
+  image,
+  noBluredBackground,
+}: Props) {
   const theme = useTheme();
 
   return (
@@ -21,7 +25,12 @@ export const ImageBackground = memo(function ImageBackground({ image }: Props) {
         placeholder="blur"
         priority
       />
-      <Box sx={{ height: '100%', ...theme.mixins.bluredBackground }} />
+      <Box
+        sx={{
+          height: '100%',
+          ...(!noBluredBackground && theme.mixins.bluredBackground),
+        }}
+      />
     </Box>
   );
 });
