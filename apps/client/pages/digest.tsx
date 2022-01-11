@@ -1,22 +1,22 @@
 import Grid from '@mui/material/Grid';
-import { EventCard } from '../components/EventCard';
 import { Shell } from '../components/Layout/Shell';
-import EventsJpg from '../public/images/events.jpg';
-import { useGetEventsQuery } from '../redux/service';
+import { useGetDigestsQuery } from '../redux/service';
+import { DigestCard } from '../components/DigestCard';
+import DigestJpg from '../public/images/digest.jpg';
 
-function Events() {
-  const { data, isLoading } = useGetEventsQuery('');
+function Digest() {
+  const { data, isLoading } = useGetDigestsQuery('');
 
   return (
     <Shell
+      image={DigestJpg}
       isLoading={isLoading}
-      image={EventsJpg}
+      maxWidth={false}
       sx={{
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
       }}
-      maxWidth={false}
     >
       <Grid
         container
@@ -24,9 +24,9 @@ function Events() {
         sx={{ justifyContent: { sx: 'start', md: 'center' }, mb: 2 }}
         spacing={2}
       >
-        {data?.map((event) => (
-          <Grid key={event.id} item xs={12} sm={6} md={4} lg={3}>
-            <EventCard event={event} sx={{ height: '100%' }} />
+        {data?.map((digest) => (
+          <Grid key={digest.id} item xs={12} sm={6} md={4} lg={3}>
+            <DigestCard digest={digest} sx={{ height: '100%' }} />
           </Grid>
         ))}
       </Grid>
@@ -34,4 +34,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default Digest;

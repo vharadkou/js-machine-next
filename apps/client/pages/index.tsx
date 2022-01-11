@@ -1,4 +1,4 @@
-import { useGetRecentEventsQuery } from '../redux/events';
+import { useGetRecentEventsQuery } from '../redux/service';
 import { EventCard } from '../components/EventCard';
 import { Shell } from '../components/Layout/Shell';
 import VideoJpg from '../public/images/video.jpg';

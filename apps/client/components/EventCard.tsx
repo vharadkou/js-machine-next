@@ -12,7 +12,7 @@ interface Props {
   sx?: SxProps<Theme>;
 }
 
-export const EventCard = memo(function RecentEvent({ event, sx }: Props) {
+export const EventCard = memo(function EventCard({ event, sx }: Props) {
   const theme = useTheme();
 
   const { day, year, month } = useMemo(

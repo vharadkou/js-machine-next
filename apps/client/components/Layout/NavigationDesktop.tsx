@@ -22,7 +22,7 @@ export const NavigationDesktop = memo(function NavigationDesktop({
       }}
     >
       <NavigationButton href="/about" label="О НАС" />
-      <NavigationButton href="/news" label="НОВОСТИ" />
+      <NavigationButton href="/digest" label="ДАЙДЖЕСТ" />
       <NavigationButton href="/events" label="СОБЫТИЯ" />
     </Box>
   );

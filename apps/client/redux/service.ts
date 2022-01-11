@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Event } from './models';
+import { Digest, Event } from './models';
 
 export const jsmApi = createApi({
   reducerPath: 'jsmApi',
@@ -11,7 +11,14 @@ export const jsmApi = createApi({
     getEvents: builder.query<Event[], string>({
       query: () => `events`,
     }),
+    getDigests: builder.query<Digest[], string>({
+      query: () => `digests`,
+    }),
   }),
 });
 
-export const { useGetRecentEventsQuery, useGetEventsQuery } = jsmApi;
+export const {
+  useGetRecentEventsQuery,
+  useGetEventsQuery,
+  useGetDigestsQuery,
+} = jsmApi;

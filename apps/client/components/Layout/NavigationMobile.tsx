@@ -49,9 +49,9 @@ export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
           label="О НАС"
         />
         <BottomNavigationAction
-          value="/news"
-          onClick={navigate('/news')}
-          label="НОВОСТИ"
+          value="/digest"
+          onClick={navigate('/digest')}
+          label="ДАЙДЖЕСТ"
         />
         <BottomNavigationAction
           value="/events"
