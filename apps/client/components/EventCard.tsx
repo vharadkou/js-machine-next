@@ -28,7 +28,13 @@ export const EventCard = memo(function EventCard({ event, sx }: Props) {
 
   return (
     <CardActionArea href={event.link} target="_blank" sx={{ ...sx }}>
-      <Card sx={{ ...theme.mixins.bluredBackground, ...sx }}>
+      <Card
+        sx={{
+          ...theme.mixins.bluredBackground,
+          ...theme.mixins.responsiveBlur,
+          ...sx,
+        }}
+      >
         <CardContent sx={{ display: 'flex' }}>
           <Box sx={{ mr: 2 }}>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>

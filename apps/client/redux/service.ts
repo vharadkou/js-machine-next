@@ -3,6 +3,7 @@ import { Digest, Event } from './models';
 
 export const jsmApi = createApi({
   reducerPath: 'jsmApi',
+  keepUnusedDataFor: 300,
   baseQuery: fetchBaseQuery({ baseUrl: '/api/' }),
   endpoints: (builder) => ({
     getRecentEvents: builder.query<Event[], string>({

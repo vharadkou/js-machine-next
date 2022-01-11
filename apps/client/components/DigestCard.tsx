@@ -27,7 +27,13 @@ export const DigestCard = memo(function DigestCard({ digest, sx }: Props) {
 
   return (
     <CardActionArea sx={{ ...sx }}>
-      <Card sx={{ ...theme.mixins.bluredBackground, ...sx }}>
+      <Card
+        sx={{
+          ...theme.mixins.bluredBackground,
+          ...theme.mixins.responsiveBlur,
+          ...sx,
+        }}
+      >
         <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
           <Typography variant="body2">
             {day} {month}
