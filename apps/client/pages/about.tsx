@@ -30,6 +30,7 @@ function About() {
             position: 'relative',
             display: { sm: 'flex', sx: 'block' },
             alignItems: { sm: 'center' },
+            mt: 2,
           }}
           maxWidth={'sm'}
         >

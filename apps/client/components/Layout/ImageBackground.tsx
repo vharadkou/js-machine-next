@@ -19,6 +19,7 @@ export const ImageBackground = memo(function ImageBackground({ image }: Props) {
         objectPosition="center center"
         objectFit="cover"
         placeholder="blur"
+        priority
       />
       <Box sx={{ height: '100%', ...theme.mixins.bluredBackground }} />
     </Box>
