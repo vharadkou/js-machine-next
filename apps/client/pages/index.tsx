@@ -10,6 +10,7 @@ function Index() {
     <Shell
       isLoading={isLoading}
       image={VideoJpg}
+      noBluredBackground
       video="video/main.mp4"
       sx={{
         display: 'flex',

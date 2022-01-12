@@ -11,6 +11,7 @@ interface Props {
   isLoading?: boolean;
   image?: string;
   video?: string;
+  noBluredBackground?: boolean;
   sx?: SxProps<Theme>;
   maxWidth?: Breakpoint | false;
   children?: ReactNode;
@@ -20,6 +21,7 @@ export const Shell = memo(function Shell({
   isLoading,
   image,
   video,
+  noBluredBackground,
   sx,
   maxWidth,
   children,
@@ -32,7 +34,12 @@ export const Shell = memo(function Shell({
           sx={{ position: 'fixed', zIndex: 1, width: '100%' }}
         />
       )}
-      {image && <ImageBackground image={image} />}
+      {image && (
+        <ImageBackground
+          image={image}
+          noBluredBackground={noBluredBackground}
+        />
+      )}
       {video && <Video path="video/main.mp4" />}
       <Box
         id="back-to-top-anchor"
