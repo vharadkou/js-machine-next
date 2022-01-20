@@ -15,6 +15,9 @@ export const jsmApi = createApi({
     getDigests: builder.query<Digest[], string>({
       query: () => `digests`,
     }),
+    getDigest: builder.query<Digest, string>({
+      query: (id: string) => `digests/${id}`,
+    }),
   }),
 });
 
@@ -22,4 +25,5 @@ export const {
   useGetRecentEventsQuery,
   useGetEventsQuery,
   useGetDigestsQuery,
+  useGetDigestQuery,
 } = jsmApi;

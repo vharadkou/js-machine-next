@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import { SxProps, Theme, useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import { Digest } from '../redux/models';
+import { useRouter } from 'next/router';
 
 interface Props {
   digest: Digest;
@@ -14,6 +15,14 @@ interface Props {
 
 export const DigestCard = memo(function DigestCard({ digest, sx }: Props) {
   const theme = useTheme();
+  const router = useRouter();
+
+  const navigate = useCallback(
+    (href: string) => () => {
+      router.push(href);
+    },
+    [router]
+  );
 
   const { day, month } = useMemo(
     () => ({
@@ -26,7 +35,7 @@ export const DigestCard = memo(function DigestCard({ digest, sx }: Props) {
   );
 
   return (
-    <CardActionArea sx={{ ...sx }}>
+    <CardActionArea onClick={navigate(`digest/${digest.id}`)} sx={{ ...sx }}>
       <Card
         sx={{
           ...theme.mixins.bluredBackground,

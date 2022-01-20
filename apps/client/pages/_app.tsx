@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import './styles.css';
 import { ThemeProvider } from '@mui/material/styles';
@@ -10,6 +12,12 @@ import { theme } from '../components/Theme';
 import FaviconIco from '../public/favicon.ico';
 
 function CustomApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const showHeader = useMemo(
+    () => router.pathname !== '/digest/[id]',
+    [router.pathname]
+  );
+
   return (
     <>
       <Head>
@@ -19,7 +27,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <main>
         <ThemeProvider theme={theme}>
-          <Layout />
+          {showHeader && <Layout />}
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>

@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
-import { Shell } from '../components/Layout/Shell';
-import { useGetDigestsQuery } from '../redux/service';
-import { DigestCard } from '../components/DigestCard';
-import DigestJpg from '../public/images/digest.jpg';
+import { Shell } from '../../components/Layout/Shell';
+import { useGetDigestsQuery } from '../../redux/service';
+import { DigestCard } from '../../components/DigestCard';
+import DigestJpg from '../../public/images/digest.jpg';
 
 function Digest() {
   const { data, isLoading } = useGetDigestsQuery('');
