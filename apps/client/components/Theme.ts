@@ -1,6 +1,14 @@
 import { createTheme } from '@mui/material/styles';
 import { Mixins } from '@mui/material/styles/createMixins';
 
+declare module '@mui/material/styles/createMixins' {
+  interface Mixins {
+    bluredBackground: CSSProperties;
+    responsiveBlur: CSSProperties;
+    markdown: CSSProperties;
+  }
+}
+
 export const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -50,13 +58,42 @@ function createMixins(mixins: Mixins) {
     responsiveBlur: {
       backdropFilter: { xs: 'blur(3px)', sm: 'none' },
     },
+    markdown: {
+      '& article': {
+        fontFamily: 'Avenir Next',
+      },
+      '& h1': {
+        color: 'rgba(0, 0, 0, 0.85)',
+        fontSize: 36,
+        mt: 1,
+        mb: 1,
+        fontFamily: 'Arvo',
+      },
+      '& h2': {
+        fontFamily: 'Russo One',
+        mt: 0.5,
+        mb: 0.5,
+        ml: 0,
+        mr: 0,
+        fontSize: 24,
+        color: 'rgb(41, 41, 41)',
+      },
+      '& h3': {
+        color: 'rgb(41, 41, 41)',
+        mt: 4.5,
+        mb: 0,
+        fontFamily: 'Russo One',
+        fontSize: 20,
+      },
+      '& p': {
+        lineHeight: '1.5em',
+        fontSize: 18,
+        mt: 1,
+      },
+      '& a': {
+        color: '#2F5C7C',
+      },
+    },
     ...mixins,
   };
-}
-
-declare module '@mui/material/styles/createMixins' {
-  interface Mixins {
-    bluredBackground: CSSProperties;
-    responsiveBlur: CSSProperties;
-  }
 }

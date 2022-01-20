@@ -9,6 +9,7 @@ import { Video } from '../Video';
 
 interface Props {
   isLoading?: boolean;
+  hideOffset?: boolean;
   image?: string;
   video?: string;
   noBluredBackground?: boolean;
@@ -19,6 +20,7 @@ interface Props {
 
 export const Shell = memo(function Shell({
   isLoading,
+  hideOffset,
   image,
   video,
   noBluredBackground,
@@ -50,18 +52,21 @@ export const Shell = memo(function Shell({
           flexDirection: 'column',
         }}
       >
-        <Offset />
+        {!hideOffset && <Offset />}
         <Container
           sx={{
             flex: 1,
             mt: 2,
+            mb: 2,
             ...sx,
           }}
           maxWidth={maxWidth}
         >
           {children}
         </Container>
-        <Offset sx={{ display: { xs: 'block', sm: 'none' } }} />
+        {!hideOffset && (
+          <Offset sx={{ display: { xs: 'block', sm: 'none' } }} />
+        )}
       </Box>
     </>
   );

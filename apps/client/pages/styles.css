@@ -20,12 +20,6 @@ body {
   line-height: inherit;
   margin: 0;
 }
-h1,
-h2,
-p,
-pre {
-  margin: 0;
-}
 *,
 ::before,
 ::after {
