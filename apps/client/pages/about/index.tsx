@@ -4,7 +4,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GroupsIcon from '@mui/icons-material/Groups';
 import AboutJpg from '../../public/images/about.jpg';
 import { Shell } from '../../components/Layout/Shell';
-import { Article } from './Article';
+import { Article } from '../../components/Article';
 
 function About() {
   return (

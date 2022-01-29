@@ -1,4 +1,4 @@
-import { memo, ReactElement, useCallback } from 'react';
+import { memo, ReactElement } from 'react';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Zoom from '@mui/material/Zoom';
 import Box from '@mui/material/Box';

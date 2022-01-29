@@ -4,8 +4,8 @@ import Grid from '@mui/material/Grid';
 import { useGetDigestQuery } from '../../redux/service';
 import { Shell } from '../../components/Layout/Shell';
 import { Markdown } from '../../components/Markdown';
-import { Title } from './Title';
 import DotsJpg from '../../public/images/dots.jpg';
+import { Title } from '../../components/Title';
 
 function DigestItem() {
   const router = useRouter();
