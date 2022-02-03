@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "build:analyze": "ANALYZE=true nx build",
+    "start": "nx run client:serve",
+    "start:prod": "nx run client:serve:production --port $PORT",
+    "build": "nx run client:build:production",
+    "build:analyze": "ANALYZE=true nx run client:build:production",
     "test": "nx test",
     "update": "nx migrate latest",
     "update:run-migrations": "nx migrate --run-migrations"
