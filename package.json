@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "nx": "nx",
     "start": "nx run client:serve",
     "start:prod": "nx run client:serve:production --port $PORT",
     "build": "nx run client:build:production",
@@ -36,6 +37,7 @@
     "@nrwl/eslint-plugin-nx": "13.7.3",
     "@nrwl/jest": "13.7.3",
     "@nrwl/linter": "13.7.3",
+    "@nrwl/node": "13.8.1",
     "@nrwl/react": "13.7.3",
     "@nrwl/tao": "13.7.3",
     "@nrwl/web": "13.7.3",

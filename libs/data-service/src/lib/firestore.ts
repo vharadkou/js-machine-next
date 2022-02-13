@@ -1,6 +1,7 @@
-import { Firestore } from '@google-cloud/firestore';
+import { Firestore, Timestamp } from '@google-cloud/firestore';
+import { BaseEntity } from './models';
 
-const firestore = new Firestore({
+export const firestore = new Firestore({
   projectId: 'js-machine-next-340117',
   credentials: {
     client_email: process.env.CLIENT_EMAIL,
@@ -8,24 +9,13 @@ const firestore = new Firestore({
   },
 });
 
-export default async function handler(req, res) {
-  const snapshot = await firestore
-    .collection('events')
-    .orderBy('date', 'desc')
-    .get();
-
-  const data = mapCollectionFromSnapshot(snapshot);
-
-  res.status(200).json(data);
-}
-
-function mapCollectionFromSnapshot<T>(
+export function mapCollectionFromSnapshot<T>(
   snapshot: FirebaseFirestore.QuerySnapshot
 ): T[] {
   return snapshot.docs.map<T>((doc) => mapEntityFromSnapshot(doc));
 }
 
-function mapEntityFromSnapshot<T>(
+export function mapEntityFromSnapshot<T>(
   snapshot:
     | FirebaseFirestore.DocumentSnapshot
     | FirebaseFirestore.QueryDocumentSnapshot
@@ -40,5 +30,21 @@ function mapEntityFromSnapshot<T>(
     ...(data as T),
     id: snapshot.ref.id,
     date: data.date.toDate(),
+  };
+}
+
+export function convertToFirestoreEntity<T extends BaseEntity>(
+  data: T
+): Pick<T, Exclude<keyof T, 'id'>> & {
+  date: FirebaseFirestore.Timestamp;
+} {
+  // unsafe remove id property
+  delete data.id;
+
+  const date = data.date ? new Date(data.date) : new Date();
+
+  return {
+    ...data,
+    date: Timestamp.fromDate(date),
   };
 }
