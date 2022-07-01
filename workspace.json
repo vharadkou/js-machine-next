@@ -4,5 +4,6 @@
     "client": "apps/client",
     "client-e2e": "apps/client-e2e",
     "data-service": "libs/data-service"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
