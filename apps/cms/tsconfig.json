@@ -6,6 +6,8 @@
   },
   "include": [
     "./",
+    "./**/*.ts",
+    "./**/*.js",
     "src/**/*.json"
   ],
   "exclude": [
@@ -15,7 +17,7 @@
     ".cache/",
     ".tmp/",
     "src/admin/",
-    "**/*.test.ts",
+    "**/*.test.*",
     "src/plugins/**"
   ]
 }
