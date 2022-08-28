@@ -46,4 +46,5 @@ jobs:
             --platform managed \
             --region $CLOUD_RUN_REGION \
             --allow-unauthenticated \
+            --max-instances=30 \
             --quiet
