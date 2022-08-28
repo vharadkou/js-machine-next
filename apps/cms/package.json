@@ -10,10 +10,10 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.3.0",
-    "@strapi/plugin-users-permissions": "4.3.0",
-    "@strapi/strapi": "4.3.0",
-    "better-sqlite3": "7.4.6",
+    "@strapi/plugin-i18n": "4.3.6",
+    "@strapi/plugin-users-permissions": "4.3.6",
+    "@strapi/strapi": "4.3.6",
+    "better-sqlite3": "7.6.2",
     "strapi-plugin-slugify": "2.2.3",
     "strapi-plugin-transformer": "2.1.0"
   },
