@@ -1,10 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Entities, getRecent } from '@jsm/data-service';
+import { Entities, http } from '@jsm/data-service';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const data = await getRecent(Entities.Events);
+  const data = await http.get(
+    `${process.env.PROXY}/api/${Entities.Events}/recent`
+  );
   res.status(200).json(data);
 }

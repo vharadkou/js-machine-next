@@ -1,2 +1,2 @@
-export * from './lib/data-service';
 export * from './lib/models';
+export * from './lib/http-client';
