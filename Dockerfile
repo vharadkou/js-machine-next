@@ -20,4 +20,7 @@ RUN npm ci
 
 RUN npm run build
 
-CMD ["npm", "run", "start:prod"]
+ARG PROXY_ARG;
+ENV PROXY=$PROXY_ARG
+
+CMD ["node_modules/.bin/next", "start"]

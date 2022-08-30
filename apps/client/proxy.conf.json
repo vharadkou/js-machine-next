@@ -1,8 +1,0 @@
-{
-  "/api": {
-    "target": "https://js-machine.app/",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
-  }
-}
