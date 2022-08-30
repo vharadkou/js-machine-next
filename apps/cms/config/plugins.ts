@@ -7,6 +7,10 @@ export default ({ env }) => ({
           field: 'slug',
           references: 'title',
         },
+        event: {
+          field: 'slug',
+          references: 'title',
+        },
       },
     },
   },
