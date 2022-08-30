@@ -11,7 +11,7 @@ env:
   CLOUD_RUN_REGION: europe-north1
   # project-name but it can be anything you want
   REPO_NAME: js-machine-next
-  PROXY_ARG: https://js-machine.app/
+  PROXY_ARG: 'https://js-machine.app/'
 
 jobs:
   build-and-deploy:
