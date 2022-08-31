@@ -26,5 +26,5 @@ ENV DATABASE_SSL=${DATABASE_SSL}
 COPY ./apps/cms .
 RUN npm ci
 RUN npm run build
-
+EXPOSE 1337
 CMD ["npm", "run", "start"]
