@@ -15,6 +15,10 @@ env:
   DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
   DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
   DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+  APP_KEYS: ${{ secrets.APP_KEYS }}
+  API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+  ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 jobs:
   build-and-deploy:
@@ -38,7 +42,7 @@ jobs:
           gcloud --quiet auth configure-docker
       - name: Build and tag image
         run: |-
-          docker build -f Dockerfile.cms . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg DATABASE_NAME=$DATABASE_NAME --build-arg DATABASE_USER=$DATABASE_USER --build-arg DATABASE_PASSWORD=$DATABASE_PASSWORD --build-arg DATABASE_HOST=$DATABASE_HOST --build-arg DATABASE_PORT=$DATABASE_PORT
+          docker build -f Dockerfile.cms . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg DATABASE_NAME=$DATABASE_NAME --build-arg DATABASE_USER=$DATABASE_USER --build-arg DATABASE_PASSWORD=$DATABASE_PASSWORD --build-arg DATABASE_HOST=$DATABASE_HOST --build-arg DATABASE_PORT=$DATABASE_PORT --build-arg APP_KEYS=$APP_KEYS --build-arg API_TOKEN_SALT=$API_TOKEN_SALT --build-arg ADMIN_JWT_SECRET=$ADMIN_JWT_SECRET --build-arg JWT_SECRET=$JWT_SECRET
       - name: Push image to GCR
         run: |-
           docker push gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA
