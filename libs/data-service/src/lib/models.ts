@@ -16,6 +16,20 @@ export interface Event extends BaseEntity {
   title: string;
 }
 
+export interface Response<T> {
+  data: T;
+  meta: Metadata;
+}
+
+interface Metadata {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+}
+
 export interface Feedback extends BaseEntity {
   text: string;
 }
