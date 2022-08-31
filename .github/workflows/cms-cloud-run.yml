@@ -17,7 +17,7 @@ env:
   API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
   ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
-  INSTANCE_UNIX_SOCKET: { { secrets.INSTANCE_UNIX_SOCKET } }
+  INSTANCE_UNIX_SOCKET: ${{ secrets.INSTANCE_UNIX_SOCKET }}
 
 jobs:
   build-and-deploy:
