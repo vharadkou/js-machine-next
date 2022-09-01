@@ -3,7 +3,7 @@ body,
 body > div:first-child,
 div#__next,
 div#__next > main {
-  height: 100%;
+  height: 100vh;
 }
 
 html {
