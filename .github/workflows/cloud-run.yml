@@ -5,10 +5,10 @@ on:
     branches:
       - master
       - main
-      paths-ignore:
-        - '**/cms-cloud-run.yml'
-        - 'apps/cms/**'
-        - 'Dockerfile.cms'
+    paths-ignore:
+      - '**/cms-cloud-run.yml'
+      - 'apps/cms/**'
+      - 'Dockerfile.cms'
 
 env:
   CLOUD_RUN_PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
