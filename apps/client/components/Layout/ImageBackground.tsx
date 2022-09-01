@@ -15,7 +15,14 @@ export const ImageBackground = memo(function ImageBackground({
   const theme = useTheme();
 
   return (
-    <Box sx={{ position: 'fixed', width: '100vw', height: '100vh' }}>
+    <Box
+      sx={{
+        position: 'fixed',
+        width: '100vw',
+        height: '100vh',
+      }}
+      style={{ width: '100lvw', height: '100lvh' }}
+    >
       <Image
         src={image}
         alt="Picture of the author"
@@ -27,9 +34,11 @@ export const ImageBackground = memo(function ImageBackground({
       />
       <Box
         sx={{
-          height: '100%',
+          width: '100vw',
+          height: '100vh',
           ...(!noBluredBackground && theme.mixins.bluredBackground),
         }}
+        style={{ width: '100lvw', height: '100lvh' }}
       />
     </Box>
   );
