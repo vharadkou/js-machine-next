@@ -15,7 +15,7 @@ export const ImageBackground = memo(function ImageBackground({
   const theme = useTheme();
 
   return (
-    <Box sx={{ position: 'fixed', inset: '0 0 0 0' }}>
+    <Box sx={{ position: 'fixed', width: '100vw', height: '100vh' }}>
       <Image
         src={image}
         alt="Picture of the author"
