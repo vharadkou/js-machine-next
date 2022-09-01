@@ -33,6 +33,8 @@ export function Video({ path, style }: Props) {
       </video>
       <Box
         sx={{
+          width: '100vw',
+          height: '100vh',
           position: 'fixed',
           inset: '0 0 0 0',
           ...theme.mixins.bluredBackground,
