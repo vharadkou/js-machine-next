@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Digest, Event } from './models';
+import { Digest, Event } from '@jsm/data-service';
 
 export const jsmApi = createApi({
   reducerPath: 'jsmApi',

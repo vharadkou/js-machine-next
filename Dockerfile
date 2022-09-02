@@ -20,7 +20,7 @@ RUN npm ci
 
 RUN npm run build
 
-ARG PROXY_ARG="http://localhost:4200"
-ENV PROXY=$PROXY_ARG
+ARG CMS_API="http://localhost:4200"
+ENV CMS_API=$CMS_API
 
 CMD ["node_modules/.bin/next", "start", "dist/apps/client"]

@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
-import { Digest } from '../redux/models';
+import { Digest } from '@jsm/data-service';
 import { useRouter } from 'next/router';
 
 interface Props {
@@ -35,7 +35,7 @@ export const DigestCard = memo(function DigestCard({ digest, sx }: Props) {
   );
 
   return (
-    <CardActionArea onClick={navigate(`digest/${digest.id}`)} sx={{ ...sx }}>
+    <CardActionArea onClick={navigate(`digest/${digest.slug}`)} sx={{ ...sx }}>
       <Card
         sx={{
           ...theme.mixins.bluredBackground,

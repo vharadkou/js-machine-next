@@ -14,7 +14,7 @@ env:
   CLOUD_RUN_PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   CLOUD_RUN_REGION: europe-north1
   REPO_NAME: js-machine-next
-  PROXY_ARG: 'https://js-machine.app/'
+  CMS_API: ${{ secrets.CMS_API }}
 
 jobs:
   build-and-deploy:
@@ -38,7 +38,7 @@ jobs:
           gcloud --quiet auth configure-docker
       - name: Build and tag image
         run: |-
-          docker build . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg PROXY_ARG=$PROXY_ARG
+          docker build . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg CMS_API=$CMS_API
       - name: Push image to GCR
         run: |-
           docker push gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA

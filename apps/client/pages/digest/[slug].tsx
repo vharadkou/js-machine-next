@@ -10,7 +10,7 @@ import { Title } from '../../components/Title';
 function DigestItem() {
   const router = useRouter();
   const { data, isLoading } = useGetDigestQuery(
-    (router.query.id as string) || ''
+    (router.query.slug as string) || ''
   );
 
   const navigate = useCallback(() => {

@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { Digest } from '@jsm/data-service';
 import { Shell } from '../../components/Layout/Shell';
 import { useGetDigestsQuery } from '../../redux/service';
 import { DigestCard } from '../../components/DigestCard';
 import DigestJpg from '../../public/images/digest.jpg';
-import { Digest } from '../../redux/models';
 
 function Digest() {
   const { data, isLoading } = useGetDigestsQuery('');

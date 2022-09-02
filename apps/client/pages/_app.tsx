@@ -14,7 +14,7 @@ import FaviconIco from '../public/favicon.ico';
 function CustomApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const showHeader = useMemo(
-    () => router.pathname !== '/digest/[id]',
+    () => router.pathname !== '/digest/[slug]',
     [router.pathname]
   );
 

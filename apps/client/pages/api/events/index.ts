@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const response = await http.get<Response<Event>>(
-    `${process.env.CMS_PROXY}/api/${Entities.Events}?locale=ru&sort[0]=date:desc`
+    `${process.env.CMS_API}/api/${Entities.Events}?locale=ru&sort[0]=date:desc`
   );
   res.status(200).json(response.data);
 }
