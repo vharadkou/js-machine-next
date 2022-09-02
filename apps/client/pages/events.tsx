@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
-import Grow from '@mui/material/Grow';
+import { useGetEventsQuery } from '../redux/service';
 import { EventCard } from '../components/EventCard';
 import { Shell } from '../components/Layout/Shell';
+import { GrowAnimation } from '../components/GrowAnimation';
 import EventsJpg from '../public/images/events.jpg';
-import { useGetEventsQuery } from '../redux/service';
 
 function Events() {
   const { data, isLoading } = useGetEventsQuery('');
@@ -26,26 +26,15 @@ function Events() {
         spacing={2}
       >
         {data?.map((event, index) => (
-          <Grow
-            in
-            key={event.id}
-            style={{ transformOrigin: '0 0 0' }}
-            timeout={animationDelayByIndex(index)}
-          >
+          <GrowAnimation key={event.id} index={index}>
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <EventCard event={event} sx={{ height: '100%' }} />
             </Grid>
-          </Grow>
+          </GrowAnimation>
         ))}
       </Grid>
     </Shell>
   );
-}
-
-const BASE_ANIMATION_DELAY = 500;
-
-function animationDelayByIndex(index: number) {
-  return BASE_ANIMATION_DELAY * Math.log(index + 2);
 }
 
 export default Events;

@@ -1,7 +1,9 @@
 import { useGetRecentEventsQuery } from '../redux/service';
 import { EventCard } from '../components/EventCard';
 import { Shell } from '../components/Layout/Shell';
+import { GrowAnimation } from '../components/GrowAnimation';
 import VideoJpg from '../public/images/video.jpg';
+import Box from '@mui/material/Box';
 
 function Index() {
   const { data, isLoading } = useGetRecentEventsQuery('');
@@ -19,8 +21,12 @@ function Index() {
       }}
       maxWidth="sm"
     >
-      {data?.map((event) => (
-        <EventCard key={event.id} event={event} sx={{ mb: 1 }} />
+      {data?.map((event, index) => (
+        <GrowAnimation key={event.id} index={index}>
+          <Box>
+            <EventCard event={event} sx={{ mb: 1 }} />
+          </Box>
+        </GrowAnimation>
       ))}
     </Shell>
   );
