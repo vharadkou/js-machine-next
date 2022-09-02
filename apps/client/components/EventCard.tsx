@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
-import { Event } from '../redux/models';
+import { Event } from '@jsm/data-service';
 
 interface Props {
   event: Event;
