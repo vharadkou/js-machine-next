@@ -23,7 +23,6 @@ export function Video({ path, style }: Props) {
           left: 0,
           ...style,
         }}
-        playsInline
         autoPlay
         muted
         loop
