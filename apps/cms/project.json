@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/cms/src",
+  "sourceRoot": "apps/cms",
   "targets": {
     "serve": {
       "executor": "@nx-extend/strapi:serve"
