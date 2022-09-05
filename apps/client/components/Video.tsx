@@ -17,7 +17,8 @@ export function Video({ path, style }: Props) {
         style={{
           objectFit: 'cover',
           width: '100vw',
-          height: '100vh',
+          height:
+            'calc(100vh + env(safe-area-inset-bottom) + env(safe-area-inset-top))',
           position: 'fixed',
           top: 0,
           left: 0,
@@ -33,7 +34,8 @@ export function Video({ path, style }: Props) {
       <Box
         sx={{
           width: '100vw',
-          height: '100vh',
+          height:
+            'calc(100vh + env(safe-area-inset-bottom) + env(safe-area-inset-top))',
           position: 'fixed',
           inset: '0 0 0 0',
           ...theme.mixins.bluredBackground,

@@ -3,7 +3,7 @@ body,
 body > div:first-child,
 div#__next,
 div#__next > main {
-  height: 100vh;
+  height: calc(100vh + env(safe-area-inset-bottom) + env(safe-area-inset-top));
 }
 
 html {

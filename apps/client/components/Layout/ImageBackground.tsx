@@ -19,9 +19,9 @@ export const ImageBackground = memo(function ImageBackground({
       sx={{
         position: 'fixed',
         width: '100vw',
-        height: '100vh',
+        height:
+          'calc(100vh + env(safe-area-inset-bottom) + env(safe-area-inset-top))',
       }}
-      style={{ width: '100lvw', height: '100lvh' }}
     >
       <Image
         src={image}
@@ -35,10 +35,10 @@ export const ImageBackground = memo(function ImageBackground({
       <Box
         sx={{
           width: '100vw',
-          height: '100vh',
+          height:
+            'calc(100vh + env(safe-area-inset-bottom) + env(safe-area-inset-top))',
           ...(!noBluredBackground && theme.mixins.bluredBackground),
         }}
-        style={{ width: '100lvw', height: '100lvh' }}
       />
     </Box>
   );
