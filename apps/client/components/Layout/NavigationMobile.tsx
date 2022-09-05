@@ -36,6 +36,7 @@ export const NavigationMobile = memo(function NavigationMobile({ sx }: Props) {
         zIndex: 1,
         ...sx,
       }}
+      style={{ bottom: 'env(safe-area-inset-bottom)' }}
       elevation={3}
     >
       <BottomNavigation
