@@ -9,6 +9,7 @@ import { NavigationMobile } from './NavigationMobile';
 import { NavigationButton } from './NavigationButton';
 import { HideOnScroll } from './HideOnScroll';
 import { ScrollTop } from './ScrollTop';
+import InstallPWA from '../InstallPwa';
 
 export const Layout = memo(function Layout() {
   return (
@@ -23,6 +24,7 @@ export const Layout = memo(function Layout() {
         >
           <Toolbar>
             <NavigationButton href="/" label="JS MACHINE" fontSize={24} />
+            <InstallPWA />
             <Box sx={{ flexGrow: 1 }} />
             <NavigationDesktop sx={{ display: { xs: 'none', sm: 'flex' } }} />
           </Toolbar>
