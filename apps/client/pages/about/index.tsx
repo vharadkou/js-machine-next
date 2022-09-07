@@ -15,6 +15,7 @@ function About() {
         alignItems: { sm: 'center' },
       }}
       maxWidth="sm"
+      title="About"
     >
       <Grid
         container

@@ -32,6 +32,7 @@ function DigestItem() {
         mt: { xs: 0, sm: 2 },
         mb: { xs: 0, sm: 2 },
       }}
+      title={data?.title}
     >
       {!isLoading && (
         <Grid

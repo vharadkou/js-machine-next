@@ -18,6 +18,7 @@ function Events() {
         justifyContent: 'center',
       }}
       maxWidth={false}
+      title="Events"
     >
       <Grid
         container

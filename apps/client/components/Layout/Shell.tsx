@@ -3,9 +3,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Breakpoint, SxProps, Theme } from '@mui/material/styles';
+import Head from 'next/head';
 import { Offset } from './Offset';
 import { ImageBackground } from './ImageBackground';
 import { Video } from '../Video';
+
+const DEFAULT_TITLE = 'JS Machine App';
 
 interface Props {
   isLoading?: boolean;
@@ -15,6 +18,7 @@ interface Props {
   noBluredBackground?: boolean;
   sx?: SxProps<Theme>;
   maxWidth?: Breakpoint | false;
+  title?: string;
   children?: ReactNode;
 }
 
@@ -26,10 +30,14 @@ export const Shell = memo(function Shell({
   noBluredBackground,
   sx,
   maxWidth,
+  title = DEFAULT_TITLE,
   children,
 }: Props) {
   return (
     <>
+      <Head>
+        <title>{title}</title>
+      </Head>
       {isLoading && (
         <LinearProgress
           color="secondary"

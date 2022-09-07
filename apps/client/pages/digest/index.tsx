@@ -40,6 +40,7 @@ function Digest() {
         flexDirection: 'column',
         justifyContent: 'center',
       }}
+      title="Digest"
     >
       {Object.keys(mappedData).map((key, index) => (
         <GrowAnimation key={key} index={index}>
