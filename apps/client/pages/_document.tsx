@@ -1,9 +1,23 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
     <Html lang="ru">
       <Head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-976CEHLDSJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+
+           gtag('config', 'G-976CEHLDSJ');
+        `}
+        </Script>
         <meta name="application-name" content="JS Machine App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -36,7 +50,11 @@ export default function Document() {
         <link rel="icon" sizes="32x32" href="/icons/icon-192x192-round.png" />
         <link rel="icon" sizes="16x16" href="/icons/icon-192x192-round.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/icons/icon-192x192-round.png" color="#5bbad5" />
+        <link
+          rel="mask-icon"
+          href="/icons/icon-192x192-round.png"
+          color="#5bbad5"
+        />
         <link rel="shortcut icon" href="/icons/icon-192x192-round.png" />
         <link
           rel="stylesheet"
