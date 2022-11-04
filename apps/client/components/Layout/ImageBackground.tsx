@@ -25,10 +25,9 @@ export const ImageBackground = memo(function ImageBackground({
     >
       <Image
         src={image}
+        style={{ objectFit: 'cover', objectPosition: 'center center' }}
         alt="Picture of the author"
-        layout="fill"
-        objectPosition="center center"
-        objectFit="cover"
+        fill
         placeholder="blur"
         priority
       />
