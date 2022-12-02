@@ -10,13 +10,13 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.4.5",
-    "@strapi/plugin-users-permissions": "4.4.5",
-    "@strapi/strapi": "4.4.5",
-    "better-sqlite3": "7.6.2",
+    "@strapi/plugin-i18n": "4.5.3",
+    "@strapi/plugin-users-permissions": "4.5.3",
+    "@strapi/strapi": "4.5.3",
+    "better-sqlite3": "8.0.1",
     "mysql": "2.18.1",
     "strapi-plugin-slugify": "2.3.1",
-    "strapi-plugin-transformer": "2.1.0"
+    "strapi-plugin-transformer": "2.1.1"
   },
   "author": {
     "name": "A Strapi developer"
