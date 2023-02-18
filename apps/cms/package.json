@@ -1,8 +1,8 @@
 {
-  "name": "my-project",
+  "name": "cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "CMS for js-machine.app",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -16,17 +16,17 @@
     "better-sqlite3": "8.1.0",
     "mysql": "2.18.1",
     "strapi-plugin-slugify": "2.3.2",
-    "strapi-plugin-transformer": "2.2.0"
+    "strapi-plugin-transformer": "3.0.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Valiantsin"
   },
   "strapi": {
     "uuid": "26c80e90-0926-4abc-8bdc-843e76062152"
   },
   "engines": {
-    "node": ">=16.x.x",
-    "npm": ">=6.0.0"
+    "node": ">=18.14.x",
+    "npm": ">=9.0.0"
   },
   "license": "MIT"
 }
