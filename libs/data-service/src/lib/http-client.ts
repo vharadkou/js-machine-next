@@ -1,3 +1,7 @@
+import { setDefaultResultOrder } from 'dns';
+
+setDefaultResultOrder('ipv4first');
+
 export const http = {
   get: async function <U>(
     path: string,
@@ -68,6 +72,7 @@ async function httpBase<T>(
   };
 
   const request = new Request(path, { ...defaultConfig, ...params?.config });
+  console.log('@@@', request);
   const response = await fetch(request);
 
   if (!response.ok) {
