@@ -72,7 +72,6 @@ async function httpBase<T>(
   };
 
   const request = new Request(path, { ...defaultConfig, ...params?.config });
-  console.log('@@@', request);
   const response = await fetch(request);
 
   if (!response.ok) {
