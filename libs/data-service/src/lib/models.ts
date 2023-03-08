@@ -6,6 +6,11 @@ export interface BaseEntity {
   description: string;
 }
 
+export interface SlugEntity<T extends BaseEntity> {
+  id: string;
+  attributes: Omit<T, 'id'>;
+}
+
 export interface Digest extends BaseEntity {
   content: string;
 }
