@@ -3,11 +3,10 @@ name: cms-cloud-run
 on:
   push:
     branches:
-      - master
       - main
     paths:
       - '**/cms-cloud-run.yml'
-      - 'apps/cms/**'
+      - 'packages/cms/**'
       - 'Dockerfile.cms'
 
 env:

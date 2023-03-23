@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 
 interface Props {
-  image: string;
+  image: string | StaticImageData;
   noBluredBackground?: boolean;
 }
 

@@ -7,13 +7,14 @@ import Head from 'next/head';
 import { Offset } from './Offset';
 import { ImageBackground } from './ImageBackground';
 import { Video } from '../Video';
+import { StaticImageData } from 'next/image';
 
 const DEFAULT_TITLE = 'JS Machine App';
 
 interface Props {
   isLoading?: boolean;
   hideOffset?: boolean;
-  image?: string;
+  image?: string | StaticImageData;
   video?: string;
   noBluredBackground?: boolean;
   sx?: SxProps<Theme>;

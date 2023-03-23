@@ -8,14 +8,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2020",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["ESNext", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jsm/data-service": ["libs/data-service/src/index.ts"]
+      "@jsm/data-service": ["packages/data-service/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

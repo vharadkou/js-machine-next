@@ -1,7 +1,7 @@
 {
   "name": "client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/client",
+  "sourceRoot": "packages/client",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,34 +9,33 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/client",
-        "outputPath": "dist/apps/client"
+        "root": "packages/client",
+        "outputPath": "dist/packages/client"
       },
       "configurations": {
-        "production": {},
         "development": {
-          "outputPath": "apps/client"
-        }
+          "outputPath": "packages/client"
+        },
+        "production": {}
       }
     },
     "serve": {
       "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
       "options": {
         "buildTarget": "client:build",
-        "dev": true,
-        "proxyConfig": "apps/client/proxy.conf.json"
+        "dev": true
       },
       "configurations": {
-        "production": {
-          "buildTarget": "client:build:production",
-          "dev": false
-        },
         "development": {
           "buildTarget": "client:build:development",
           "dev": true
+        },
+        "production": {
+          "buildTarget": "client:build:production",
+          "dev": false
         }
-      },
-      "defaultConfiguration": "development"
+      }
     },
     "export": {
       "executor": "@nrwl/next:export",
@@ -46,17 +45,23 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/client"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/client/jest.config.ts",
+        "jestConfig": "packages/client/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/client/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["packages/client/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
