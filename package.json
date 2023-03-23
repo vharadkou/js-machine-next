@@ -7,7 +7,7 @@
     "graph": "nx graph",
     "start": "nx run client:serve",
     "start:cms": "nx run cms:serve",
-    "start:prod": "nx run client:serve:production",
+    "start:prod": "nx run client:serve:production --port $PORT",
     "build": "nx run client:build:production",
     "build:analyze": "ANALYZE=true nx run client:build:production",
     "test": "nx test",
