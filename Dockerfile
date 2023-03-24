@@ -23,4 +23,4 @@ RUN npm run build
 ARG CMS_API="http://localhost:4200"
 ENV CMS_API=$CMS_API
 
-CMD ["npm ", "run", "start:prod"]
+CMD ["npm", "run", "start:prod"]
