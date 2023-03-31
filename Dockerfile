@@ -16,8 +16,7 @@ COPY . .
 # If you add a package-lock.json, speed your build by switching to 'npm ci'.
 RUN npm ci
 
-# Copy local code to the container image.
-
+RUN npm run lint
 RUN npm run build
 
 ARG CMS_API="http://localhost:4200"

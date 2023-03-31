@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { marked } from 'marked';
 import Fade from '@mui/material/Fade';
 import { SxProps, Theme, useTheme } from '@mui/material/styles';

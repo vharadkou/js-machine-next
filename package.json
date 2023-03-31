@@ -10,6 +10,7 @@
     "start:prod": "nx run client:serve:production --port $PORT",
     "build": "nx run client:build:production",
     "build:analyze": "ANALYZE=true nx run client:build:production",
+    "lint": "nx run client:lint",
     "test": "nx test",
     "update": "nx migrate latest",
     "update:run-migrations": "nx migrate --run-migrations"
@@ -74,4 +75,3 @@
     "typescript": "5.0.3"
   }
 }
-
