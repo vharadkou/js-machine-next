@@ -38,14 +38,14 @@ jobs:
           gcloud --quiet auth configure-docker
       - name: Build and tag image
         run: |-
-          docker build . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg CMS_API=$CMS_API
-      - name: Push image to GCR
+          docker build . --tag "$CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg CMS_API=$CMS_API
+      - name: Push image to registry
         run: |-
-          docker push gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA
+          docker push $CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA
       - name: Deploy
         run: |-
           gcloud components install beta --quiet
-          gcloud beta run deploy $REPO_NAME --image gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA \
+          gcloud beta run deploy $REPO_NAME --image $CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA \
             --project $CLOUD_RUN_PROJECT_ID \
             --platform managed \
             --region $CLOUD_RUN_REGION \
