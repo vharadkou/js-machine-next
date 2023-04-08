@@ -33,9 +33,9 @@ jobs:
 
       - name: Enable the necessary APIs and enable docker auth
         run: |-
-          gcloud services enable containerregistry.googleapis.com
+          gcloud services enable artifactregistry.googleapis.com
           gcloud services enable run.googleapis.com
-          gcloud --quiet auth configure-docker
+          gcloud --quiet auth configure-docker $CLOUD_RUN_REGION-docker.pkg.dev
       - name: Build and tag image
         run: |-
           docker build . --tag "$CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg CMS_API=$CMS_API
