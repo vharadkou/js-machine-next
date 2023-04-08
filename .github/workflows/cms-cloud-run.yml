@@ -40,19 +40,19 @@ jobs:
 
       - name: Enable the necessary APIs and enable docker auth
         run: |-
-          gcloud services enable containerregistry.googleapis.com
+          gcloud services enable artifactregistry.googleapis.com
           gcloud services enable run.googleapis.com
-          gcloud --quiet auth configure-docker
+          gcloud --quiet auth configure-docker $CLOUD_RUN_REGION-docker.pkg.dev
       - name: Build and tag image
         run: |-
-          docker build -f Dockerfile.cms . --tag "gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA" --build-arg DATABASE_NAME=$DATABASE_NAME --build-arg DATABASE_USER=$DATABASE_USER --build-arg DATABASE_PASSWORD=$DATABASE_PASSWORD --build-arg APP_KEYS=$APP_KEYS --build-arg API_TOKEN_SALT=$API_TOKEN_SALT --build-arg ADMIN_JWT_SECRET=$ADMIN_JWT_SECRET --build-arg JWT_SECRET=$JWT_SECRET --build-arg INSTANCE_UNIX_SOCKET=$INSTANCE_UNIX_SOCKET
-      - name: Push image to GCR
+          docker build -f Dockerfile.cms . --tag "$CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA" --build-arg DATABASE_NAME=$DATABASE_NAME --build-arg DATABASE_USER=$DATABASE_USER --build-arg DATABASE_PASSWORD=$DATABASE_PASSWORD --build-arg APP_KEYS=$APP_KEYS --build-arg API_TOKEN_SALT=$API_TOKEN_SALT --build-arg ADMIN_JWT_SECRET=$ADMIN_JWT_SECRET --build-arg JWT_SECRET=$JWT_SECRET --build-arg INSTANCE_UNIX_SOCKET=$INSTANCE_UNIX_SOCKET
+      - name: Push image to registry
         run: |-
-          docker push gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA
+          docker push $CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA
       - name: Deploy
         run: |-
           gcloud components install beta --quiet
-          gcloud beta run deploy $REPO_NAME --image gcr.io/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA \
+          gcloud beta run deploy $REPO_NAME --image $CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA \
             --project $CLOUD_RUN_PROJECT_ID \
             --platform managed \
             --region $CLOUD_RUN_REGION \
