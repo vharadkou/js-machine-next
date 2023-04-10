@@ -22,6 +22,11 @@ export default ({ env }) => ({
         removeAttributesKey: true,
         removeDataKey: true,
       },
+      plugins: {
+        ids: {
+          slugify: true,
+        },
+      },
     },
   },
 });
