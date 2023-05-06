@@ -44,12 +44,12 @@
     "libsDir": "packages"
   },
   "generators": {
-    "@nx/react": {
+    "@nrwl/react": {
       "application": {
         "babel": true
       }
     },
-    "@nx/next": {
+    "@nrwl/next": {
       "application": {
         "style": "@emotion/styled",
         "linter": "eslint"
