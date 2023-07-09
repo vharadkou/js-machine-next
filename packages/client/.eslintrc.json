@@ -4,7 +4,6 @@
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
     "../../.eslintrc.json"
