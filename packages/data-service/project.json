@@ -11,7 +11,8 @@
         "outputPath": "dist/packages/data-service",
         "main": "packages/data-service/src/index.ts",
         "tsConfig": "packages/data-service/tsconfig.lib.json",
-        "assets": ["packages/data-service/*.md"]
+        "assets": ["packages/data-service/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {
