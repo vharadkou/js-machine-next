@@ -1,5 +1,5 @@
 # base image
-FROM node:18-alpine
+FROM node:18-alpine as builder
 
 # Create and change to the app directory.
 WORKDIR /usr/app
@@ -19,7 +19,13 @@ RUN npm ci
 RUN npm run lint
 RUN npm run build
 
+FROM node:18-alpine
+WORKDIR /usr/app
+COPY --from=builder /usr/app/dist/ /usr/app/dist/
+COPY --from=builder /usr/app/node_modules/ /usr/app/node_modules/
+
 ARG CMS_API="http://localhost:4200"
 ENV CMS_API=$CMS_API
 
-CMD ["node_modules/.bin/next", "start", "dist/packages/client"]
+EXPOSE 3000
+ENTRYPOINT ["node_modules/.bin/next", "start", "dist/packages/client"]
