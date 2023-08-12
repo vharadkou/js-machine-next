@@ -13,6 +13,7 @@ function About() {
       sx={{
         display: { sm: 'flex', sx: 'block' },
         alignItems: { sm: 'center' },
+        viewTransitionName: 'jsm-content',
       }}
       maxWidth="sm"
       title="About"

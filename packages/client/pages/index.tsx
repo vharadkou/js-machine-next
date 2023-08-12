@@ -18,6 +18,7 @@ function Index() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: { xs: 'start', sm: 'center' },
+        viewTransitionName: 'jsm-content',
       }}
       maxWidth="sm"
     >

@@ -10,16 +10,17 @@ import { store } from '../redux/store';
 import { Layout } from '../components/Layout/Layout';
 import { theme } from '../components/Theme';
 import FaviconIco from '../public/favicon.ico';
+import ViewTransition from '../components/ViewTransition';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const showHeader = useMemo(
     () => router.pathname !== '/digest/[slug]',
-    [router.pathname]
+    [router.pathname],
   );
 
   return (
-    <>
+    <ViewTransition>
       <Head>
         <meta name="description" content="JS Machine App"></meta>
         <link rel="icon" type="image/x-icon" href={FaviconIco.src} />
@@ -33,7 +34,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           </Provider>
         </ThemeProvider>
       </main>
-    </>
+    </ViewTransition>
   );
 }
 

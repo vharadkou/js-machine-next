@@ -10,7 +10,7 @@ import { Title } from '../../components/Title';
 function DigestItem() {
   const router = useRouter();
   const { data, isLoading } = useGetDigestQuery(
-    (router.query.slug as string) || ''
+    (router.query.slug as string) || '',
   );
 
   const navigate = useCallback(() => {
@@ -31,6 +31,7 @@ function DigestItem() {
         pl: { xs: 0, sm: 4 },
         mt: { xs: 0, sm: 2 },
         mb: { xs: 0, sm: 2 },
+        viewTransitionName: 'jsm-content',
       }}
       title={data?.title}
     >
