@@ -19,14 +19,8 @@ RUN npm ci
 RUN npm run lint
 RUN npm run build
 
-FROM node:18-alpine
-WORKDIR /usr/app
-COPY --from=builder /usr/app/dist/ /usr/app/dist/
-COPY --from=builder /usr/app/dist/packages/client/.next/static/ /usr/app/dist/packages/client/.next/standalone/dist/packages/client/.next/static/
-COPY --from=builder /usr/app/dist/packages/client/public/ /usr/app/dist/packages/client/.next/standalone/packages/client/public/
-
 ARG CMS_API="http://localhost:4200"
 ENV CMS_API=$CMS_API
 
 EXPOSE 3000
-ENTRYPOINT [ "node", "./dist/packages/client/.next/standalone/packages/client/server.js"]
+ENTRYPOINT ["node_modules/.bin/next", "start", "dist/packages/client"]
