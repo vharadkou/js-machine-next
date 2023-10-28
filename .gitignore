@@ -46,3 +46,5 @@ Thumbs.db
 # Service Worker
 sw.*
 workbox-*.*
+
+.nx/cache
