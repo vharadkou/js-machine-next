@@ -1,5 +1,5 @@
 # base image
-FROM node:18-alpine as builder
+FROM node:20-alpine as builder
 
 # Create and change to the app directory.
 WORKDIR /usr/app
@@ -19,7 +19,7 @@ RUN npm ci
 RUN npm run lint
 RUN npm run build
 
-FROM node:18-alpine
+FROM node:20-alpine
 WORKDIR /usr/app
 COPY --from=builder /usr/app/dist/ /usr/app/dist/
 COPY --from=builder /usr/app/dist/packages/client/.next/static/ /usr/app/dist/packages/client/.next/standalone/dist/packages/client/.next/static/
