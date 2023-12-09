@@ -10,15 +10,15 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.15.4",
-    "@strapi/plugin-users-permissions": "4.15.4",
-    "@strapi/strapi": "4.15.4",
-    "better-sqlite3": "9.1.1",
+    "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-users-permissions": "4.15.5",
+    "@strapi/strapi": "4.15.5",
+    "better-sqlite3": "9.2.2",
     "mysql": "2.18.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "5.3.4",
-    "strapi-plugin-slugify": "2.3.7",
+    "strapi-plugin-slugify": "2.3.8",
     "strapi-plugin-transformer": "3.1.2",
     "styled-components": "5.3.11"
   },
