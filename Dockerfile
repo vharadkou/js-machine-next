@@ -21,12 +21,9 @@ RUN npm run build
 
 FROM node:20-alpine
 WORKDIR /usr/app
-COPY --from=builder /usr/app/dist/ /usr/app/dist/
-COPY --from=builder /usr/app/dist/packages/client/.next/static/ /usr/app/dist/packages/client/.next/standalone/dist/packages/client/.next/static/
-COPY --from=builder /usr/app/dist/packages/client/public/ /usr/app/dist/packages/client/.next/standalone/packages/client/public/
-
-ARG CMS_API="http://localhost:4200"
-ENV CMS_API=$CMS_API
+COPY --from=builder /usr/app/.next/ /usr/app/.next/
+COPY --from=builder /usr/app/.next/static/ /usr/app/.next/standalone/.next/static/
+COPY --from=builder /usr/app/public/ /usr/app/.next/standalone/public/
 
 EXPOSE 3000
-ENTRYPOINT [ "node", "./dist/packages/client/.next/standalone/packages/client/server.js"]
+ENTRYPOINT [ "node", "./.next/standalone/server.js"]

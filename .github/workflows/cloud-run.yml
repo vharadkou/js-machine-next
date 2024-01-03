@@ -4,16 +4,11 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**/cms-cloud-run.yml'
-      - 'packages/cms/**'
-      - 'Dockerfile.cms'
 
 env:
   CLOUD_RUN_PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   CLOUD_RUN_REGION: europe-north1
   REPO_NAME: js-machine-next
-  CMS_API: ${{ secrets.CMS_API }}
 
 jobs:
   build-and-deploy:
@@ -38,7 +33,7 @@ jobs:
           gcloud --quiet auth configure-docker $CLOUD_RUN_REGION-docker.pkg.dev
       - name: Build and tag image
         run: |-
-          docker build . --tag "$CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA" --build-arg CMS_API=$CMS_API
+          docker build . --tag "$CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA"
       - name: Push image to registry
         run: |-
           docker push $CLOUD_RUN_REGION-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME/$GITHUB_SHA
